@@ -1,0 +1,125 @@
+﻿@using SR3._2.Models.Device
+@using SR3._2.Models.Interfaces
+@model IEnumerable<AbstractDevice>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Фигуры</title>
+    <style>
+        .figure-div {
+            border: 1px solid black;
+            float: left;
+            margin: 3px;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Add", "Device"))
+        {
+            @Html.DropDownList("deviceType", (IEnumerable<SelectListItem>)ViewBag.Devicemenu)
+            <input type="submit" value="Добавить">
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="figure-div">
+                Устройство: @item.Value<br />
+                <div>
+                    <a href="/Device/OniOffi/@item.Key">Вклюв/выклюв</a><br>
+                    Вклю: @(((AbstractDevice)item.Value).State)
+                </div>
+                @if (item.Value is IVolume)
+                {
+                    using (Html.BeginForm("Volume" + item.Key, "Device"))
+                    {
+                        <div>
+                            Громкость крика: @(((IVolume)item.Value).Volume)
+                            <a href="/Device/VolumeIncr/@item.Key" id="getvol">Добавить крика</a>
+                            <a href="/Device/VolumeDecr/@item.Key" id="gettv">Убавить крика</a>
+                            <div id="result"></div>
+                        </div>
+                    }
+                }
+                @if (item.Value is IRegulatorTemp)
+                {
+                    using (Html.BeginForm("Temp" + item.Key, "Device"))
+                    {
+                        <div>
+                            Температура: @(((IRegulatorTemp)item.Value).Temp)
+                            <a href="/Device/TempIncrease/@item.Key">Испепелить</a>
+                            <a href="/Device/TempDecrease/@item.Key">Отморозить</a>
+                        </div>
+                    }
+                }
+
+                @if (item.Value is IChangeChennel)
+                {
+                    using (Html.BeginForm("Chennel" + item.Key, "Device"))
+                    {
+                        <div>
+                            Канал ужасти: @(((IChangeChennel)item.Value).Chennel)
+                            <a href="/Device/NextChenell/@item.Key">Следующий кханурик</a>
+                            <a href="/Device/PrevChenell/@item.Key">Предедущий кханурик</a>
+                        </div>
+                    }
+                }
+                @if (item.Value is IOpenClose)
+                {
+                    using (Html.BeginForm("OpenClose" + item.Key, "Device"))
+                    {                     <div>
+                    Дверца: @(((IOpenClose)item.Value).OpenClose)
+                    <a href="/Device/OpenClose/@item.Key">Открыть/Закрыть врата</a>
+                </div>
+                    }
+                }
+
+                @using (Html.BeginForm("Delete" + item.Key, "Device"))
+                {
+                    <a href="/Device/Delete/@item.Key">Изничтожить</a>
+                }
+            </div>
+            @*<button id="postObj">Post object</button>
+                <input type="text" id="name" />
+                <input type="text" id="age" />*@
+
+            @*<script>
+                $(function () {
+                    $("#gettv").click(function () {
+                        $.ajax({
+                            url: "/api/values/tv",
+                            type: "GET",
+
+                            success: function (data) {
+                                $("#result").html();
+                            }
+                        });
+                    });*@
+
+            //    $("#postObj").click(function () {
+            //        var p = {
+            //            Name: $("#name").val(),
+            //            Age: $("#age").val()
+            //        };
+            //        $.ajax({
+            //            url: "/api/values",
+            //            type: "POST",
+            //            data: JSON.stringify(p),
+            //            contentType: "application/json;charset=utf-8",
+            //            success: function (data) {
+            //                $("#result").html(data);
+            //            }
+            //        });
+            @*//    });
+                        //});
+                </script>*@
+        }
+</body>
+</html>

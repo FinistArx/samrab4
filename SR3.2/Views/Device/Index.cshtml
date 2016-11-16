@@ -1,0 +1,125 @@
+﻿@using SR3._2.Models.Device
+@using SR3._2.Models.Interfaces
+@model  IList<AbstractDevice>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Фигуры</title>
+    <style>
+        .figure-div {
+            border: 1px solid black;
+            float: left;
+            margin: 3px;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Add", "Device"))
+        {
+            @Html.DropDownList("deviceType", (IEnumerable<SelectListItem>)ViewBag.applist)
+            <input type="submit" value="Добавить">
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="figure-div">
+                Устройство: @item<br />
+                <div>
+                    <a href="/Device/OnOff/@item.Id">Вклюв/выклюв</a><br>
+                    Вклю: @(item.State)
+                </div>
+                @if (item is IVolume)
+                {
+                    using (Html.BeginForm("Volume" + item.Id, "Device"))
+                    {
+                        <div>
+                            Громкость крика: @(((IVolume)item).Volume)
+                            <a href="/Device/VolumeIncr/@item.Id" id="getvol">Добавить крика</a>
+                            <a href="/Device/VolumeDecr/@item.Id" id="gettv">Убавить крика</a>
+                            <div id="result"></div>
+                        </div>
+                    }
+                }
+                @if (item is IRegulatorTemp)
+                {
+                    using (Html.BeginForm("Temp" + item.Id, "Device"))
+                    {
+                        <div>
+                            Температура: @(((IRegulatorTemp)item).Temp)
+                            <a href="/Device/TempIncrease/@item.Id">Испепелить</a>
+                            <a href="/Device/TempDecrease/@item.Id">Отморозить</a>
+                        </div>
+                    }
+                }
+
+                @if (item is IChangeChennel)
+                {
+                    using (Html.BeginForm("Chennel" + item.Id, "Device"))
+                    {
+                        <div>
+                            Канал ужасти: @(((IChangeChennel)item).Chennel)
+                            <a href="/Device/NextChenell/@item.Id">Следующий кханурик</a>
+                            <a href="/Device/PrevChenell/@item.Id">Предедущий кханурик</a>
+                        </div>
+                    }
+                }
+                @if (item is IOpenClose)
+                {
+                    using (Html.BeginForm("OpenClose" + item.Id, "Device"))
+                    {                     <div>
+                    Дверца: @(((IOpenClose)item).OpenClose)
+                    <a href="/Device/OpenClose/@item.Id">Открыть/Закрыть врата</a>
+                </div>
+                    }
+                }
+
+                @using (Html.BeginForm("Delete" + item.Id, "Device"))
+                {
+                    <a href="/Device/Delete/@item.Id">Изничтожить</a>
+                }
+            </div>
+            @*<button id="postObj">Post object</button>
+                <input type="text" id="name" />
+                <input type="text" id="age" />*@
+
+            @*<script>
+                $(function () {
+                    $("#gettv").click(function () {
+                        $.ajax({
+                            url: "/api/values/tv",
+                            type: "GET",
+
+                            success: function (data) {
+                                $("#result").html();
+                            }
+                        });
+                    });*@
+
+            //    $("#postObj").click(function () {
+            //        var p = {
+            //            Name: $("#name").val(),
+            //            Age: $("#age").val()
+            //        };
+            //        $.ajax({
+            //            url: "/api/values",
+            //            type: "POST",
+            //            data: JSON.stringify(p),
+            //            contentType: "application/json;charset=utf-8",
+            //            success: function (data) {
+            //                $("#result").html(data);
+            //            }
+            //        });
+            @*//    });
+                        //});
+                </script>*@
+        }
+</body>
+</html>

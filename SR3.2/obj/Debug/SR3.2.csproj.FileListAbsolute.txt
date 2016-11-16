@@ -1,0 +1,67 @@
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\SR3.2.dll.config
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\SR3.2.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\SR3.2.pdb
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\Antlr3.Runtime.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\Microsoft.Web.Infrastructure.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\Newtonsoft.Json.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Helpers.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Mvc.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Optimization.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Razor.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Deployment.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Razor.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\WebGrease.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Helpers.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Mvc.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Optimization.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Razor.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Deployment.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Razor.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\Antlr3.Runtime.pdb
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\bin\Newtonsoft.Json.xml
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.dll
+c:\users\user\documents\visual studio 2013\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Net.Http.Formatting.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Http.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Http.WebHost.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Net.Http.Formatting.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Http.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\bin\System.Web.Http.WebHost.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.csprojResolveAssemblyReference.cache
+E:\Practika\Projects\SR3.2\SR3.2\bin\SR3.2.dll.config
+E:\Practika\Projects\SR3.2\SR3.2\bin\SR3.2.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\SR3.2.pdb
+E:\Practika\Projects\SR3.2\SR3.2\bin\Antlr3.Runtime.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\Microsoft.Web.Infrastructure.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\Newtonsoft.Json.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Net.Http.Formatting.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Helpers.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Http.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Http.WebHost.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Mvc.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Optimization.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Razor.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Deployment.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Razor.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\WebGrease.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Net.Http.Formatting.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Http.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Http.WebHost.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Helpers.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Mvc.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Optimization.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.Razor.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Deployment.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\System.Web.WebPages.Razor.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\Antlr3.Runtime.pdb
+E:\Practika\Projects\SR3.2\SR3.2\bin\Newtonsoft.Json.xml
+E:\Practika\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.dll
+E:\Practika\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.pdb
+E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.SqlServer.dll
+E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.xml
+E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.SqlServer.xml

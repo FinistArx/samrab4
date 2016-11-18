@@ -74,10 +74,11 @@
                 @if (item is IOpenClose)
                 {
                     using (Html.BeginForm("OpenClose" + item.Id, "Device"))
-                    {                     <div>
-                    Дверца: @(((IOpenClose)item).OpenClose)
-                    <a href="/Device/OpenClose/@item.Id">Открыть/Закрыть врата</a>
-                </div>
+                    {
+                        <div>
+                            Дверца: @(((IOpenClose)item).OpenClose)
+                            <a href="/Device/OpenClose/@item.Id">Открыть/Закрыть врата</a>
+                        </div>
                     }
                 }
 

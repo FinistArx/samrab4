@@ -7,8 +7,8 @@ namespace SR3._2.Models.Device
         private int max;
         private int min;
         private int temp;
-        internal Temperature() { }
-        internal Temperature(int max, int min, int temp)
+        public Temperature() { }
+        public Temperature(int max, int min, int temp)
         {
             this.temp = temp;
             this.max = max;

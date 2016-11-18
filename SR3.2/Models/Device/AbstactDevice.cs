@@ -4,7 +4,7 @@ namespace SR3._2.Models.Device
     public abstract class AbstractDevice
     {
         public int Id { get; set; }
-        internal bool state;
+        public bool state;
         public AbstractDevice() { }
         public void OnOff()
         {
@@ -15,6 +15,10 @@ namespace SR3._2.Models.Device
             get
             {
                 return state;
+            }
+            set
+            {
+                state = value;
             }
         }
     }

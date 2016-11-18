@@ -7,11 +7,12 @@ namespace SR3._2.Models.Device
 {
     public class Boiler : Temperature
     {
+
         private int max;
         private int min;
         private int temp;
-        internal Boiler() { }
-        internal Boiler(bool state, int max, int min, int temp)
+        public Boiler() { }
+        public Boiler(bool state, int max, int min, int temp)
             : base(max, min, temp)
         {
             this.temp = temp;

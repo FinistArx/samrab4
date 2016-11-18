@@ -65,3 +65,4 @@ E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.dll
 E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.SqlServer.dll
 E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.xml
 E:\Practika\Projects\SR3.2\SR3.2\bin\EntityFramework.SqlServer.xml
+E:\Practika\Projects\SR3.2\SR3.2\obj\Debug\SR3.2.csprojResolveAssemblyReference.cache

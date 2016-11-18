@@ -37,7 +37,7 @@ namespace SR3._2.Controllers
             }
 
             SelectListItem[] appList = new SelectListItem[5];
-            appList[0] = new SelectListItem { Text = "Грелко", Value = "boiler", Selected = true };
+            appList[0] = new SelectListItem { Text = "Грелко", Value = "boiler"};
             appList[1] = new SelectListItem { Text = "Студилко", Value = "cond" };
             appList[2] = new SelectListItem { Text = "Едасхрон", Value = "fridge" };
             appList[3] = new SelectListItem { Text = "Контробасс", Value = "musik" };
@@ -59,10 +59,10 @@ namespace SR3._2.Controllers
                     newDevice = new MC(false, 100, 50);
                     break;
                 case "boiler":
-                    newDevice = new Conditioner(false, 40, 10, 18);
+                    newDevice = new Boiler (false, 40, 10, 18);
                     break;
                 case "cond":
-                    newDevice = new Boiler(false, 90, 10, 15);
+                    newDevice = new Conditioner(false, 90, 10, 15);
                     break;
                 default:
                     newDevice = new Fridge(false, 20, -18, 0, false);
@@ -75,9 +75,9 @@ namespace SR3._2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult OnOff(int Id)
+        public ActionResult OnOff(int id)
         {
-            AbstractDevice z = bb.Devices.Find(Id);
+            AbstractDevice z = bb.Devices.Find(id);
             if (z != null)
             {
                 z.OnOff();
@@ -85,10 +85,10 @@ namespace SR3._2.Controllers
             }
             return RedirectToAction("Index");
         }
-        public ActionResult Delete(int? Id)
+        public ActionResult Delete(int? id)
         {
-            if (Id == null) { return HttpNotFound(); }
-            AbstractDevice b = bb.Devices.Find(Id);
+            if (id == null) { return HttpNotFound(); }
+            AbstractDevice b = bb.Devices.Find(id);
             if (b != null)
             {
                 bb.Devices.Remove(b);
@@ -98,9 +98,9 @@ namespace SR3._2.Controllers
         }
 
 
-        public ActionResult OpenClose(int Id)
+        public ActionResult OpenClose(int id)
         {
-            Fridge opcl = bb.Fredges.Find(Id);
+            Fridge opcl = bb.Fredges.Find(id);
             if (opcl != null)
             {
                 opcl.OpCl();
@@ -110,10 +110,10 @@ namespace SR3._2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult TempIncrease(int? Id)
+        public ActionResult TempIncrease(int id)
         {
-            Temperature temp = bb.Conds.Find(Id);
-            if (Id == null)
+            Temperature temp = bb.Conds.Find(id);
+            if (temp == null)
             {
                 temp.IncreaseTemp();
                 bb.SaveChanges();
@@ -122,10 +122,10 @@ namespace SR3._2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult TempDecrease(int Id)
+        public ActionResult TempDecrease(int id)
         {
-            Temperature temp = bb.Conds.Find(Id);
-            if (Id != null)
+        Temperature temp = bb.Conds.Find(id);
+            if (temp != null)
             {
                 temp.DecreaseTemp();
                 bb.SaveChanges();

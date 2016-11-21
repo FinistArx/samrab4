@@ -4,9 +4,9 @@ namespace SR3._2.Models.Device
 {
     public abstract class Temperature : AbstractDevice, IRegulatorTemp
     {
-        private int max;
-        private int min;
-        private int temp;
+        public int max;
+        public int min;
+        public int temp;
         public Temperature() { }
         public Temperature(int max, int min, int temp)
         {
@@ -25,7 +25,6 @@ namespace SR3._2.Models.Device
                 { temp = value; }
             }
         }
-
         public void DecreaseTemp()
         {
             Temp--;

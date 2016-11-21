@@ -1,8 +1,8 @@
 ﻿using SamRab3_2.Models.Contex;
+using SR3._2.Models.Contex;
 using SR3._2.Models.Device;
 using SR3._2.Models.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,33 +11,38 @@ namespace SR3._2.Controllers
     public class DeviceController : Controller
     {
         private SmartHomeContex bb = new SmartHomeContex();
+        private BoilerContex bc = new BoilerContex();
+        private ConditionerContex cc = new ConditionerContex();
+        private TVContex tv = new TVContex();
+        private MCContex mc = new MCContex();
+        private FridgeContex fc = new FridgeContex();
         public ActionResult Index()
         {
             IList<AbstractDevice> list = new List<AbstractDevice>();
 
-            foreach (AbstractDevice item in bb.Boilers.ToList())
+            foreach (AbstractDevice item in bc.Boilers.ToList())
             {
                 list.Add(item);
             }
-            foreach (AbstractDevice item in bb.Conds.ToList())
+            foreach (AbstractDevice item in cc.Conds.ToList())
             {
                 list.Add(item);
             }
-            foreach (AbstractDevice item in bb.Fredges.ToList())
+            foreach (AbstractDevice item in fc.Fredges.ToList())
             {
                 list.Add(item);
             }
-            foreach (AbstractDevice item in bb.TVs.ToList())
+            foreach (AbstractDevice item in tv.TVs.ToList())
             {
                 list.Add(item);
             }
-            foreach (AbstractDevice item in bb.MCs.ToList())
+            foreach (AbstractDevice item in mc.MCs.ToList())
             {
                 list.Add(item);
             }
 
             SelectListItem[] appList = new SelectListItem[5];
-            appList[0] = new SelectListItem { Text = "Грелко", Value = "boiler"};
+            appList[0] = new SelectListItem { Text = "Грелко", Value = "boiler" };
             appList[1] = new SelectListItem { Text = "Студилко", Value = "cond" };
             appList[2] = new SelectListItem { Text = "Едасхрон", Value = "fridge" };
             appList[3] = new SelectListItem { Text = "Контробасс", Value = "musik" };
@@ -59,7 +64,7 @@ namespace SR3._2.Controllers
                     newDevice = new MC(false, 100, 50);
                     break;
                 case "boiler":
-                    newDevice = new Boiler (false, 40, 10, 18);
+                    newDevice = new Boiler(false, 40, 10, 18);
                     break;
                 case "cond":
                     newDevice = new Conditioner(false, 90, 10, 15);
@@ -97,10 +102,9 @@ namespace SR3._2.Controllers
             return RedirectToAction("Index");
         }
 
-
         public ActionResult OpenClose(int id)
         {
-            Fridge opcl = bb.Fredges.Find(id);
+            Fridge opcl = fc.Fredges.Find(id);
             if (opcl != null)
             {
                 opcl.OpCl();
@@ -112,24 +116,47 @@ namespace SR3._2.Controllers
 
         public ActionResult TempIncrease(int id)
         {
-            Temperature temp = bb.Conds.Find(id);
-            if (temp == null)
+            Temperature newtemp= bc.Boilers.Find(id) ;
+            if (newtemp != null)
             {
-                temp.IncreaseTemp();
-                bb.SaveChanges();
-            }
+                newtemp.IncreaseTemp();
 
+                bc.SaveChanges();
+                //switch (deviceType)
+                //{
+                //    case "boiler":
+                //        newtemp.IncreaseTemp();
+                //        break;
+                //    case "cond":
+                //        newtemp.DecreaseTemp();
+                //        break;
+                //    default:
+                //        newtemp.IncreaseTemp();
+                //        break;
+                //}
+            }
             return RedirectToAction("Index");
         }
 
-        public ActionResult TempDecrease(int id)
+        public ActionResult TempDecrease(string deviceType)
         {
-        Temperature temp = bb.Conds.Find(id);
-            if (temp != null)
+            Temperature newtemp;
+            switch (deviceType)
             {
-                temp.DecreaseTemp();
-                bb.SaveChanges();
+                //case "boiler":
+                //    newtemp.DecreaseTemp();
+                //    break;
+                //case "cond":
+                //    newtemp.DecreaseTemp();
+                //    break;
+                //default:
+                //    newtemp.DecreaseTemp();
+                //    break;
             }
+
+            bb.SaveChanges();
+
+
             return RedirectToAction("Index");
         }
 

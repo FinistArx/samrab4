@@ -4,8 +4,8 @@ namespace SR3._2.Models.Device
 {
     public class TV : AbstractDevice, IVolume, IChangeChennel
     {
-        private int chennel;
-        private int volume;
+        public int chennel;
+        public int volume;
         public TV() { }
         public TV(bool state, int chennel, int volume)
         {

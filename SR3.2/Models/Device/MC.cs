@@ -11,8 +11,8 @@ namespace SR3._2.Models.Device
             this.chennel = chennel;
         }
 
-        private int chennel;
-        private int volume;
+        public int chennel;
+        public int volume;
 
         public int Chennel
         {

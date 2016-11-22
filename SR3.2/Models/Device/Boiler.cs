@@ -3,8 +3,8 @@
     public class Boiler : Temperature
     {
         public Boiler() { }
-        public Boiler(bool state, int max, int min, int temp)
-            : base(max, min, temp)
+        public Boiler(bool state,  int Temp)
+            : base(Temp)
         {        }
 
         public override string ToString()

@@ -7,8 +7,8 @@ namespace SR3._2.Models.Device
         private bool openclose;
     
         public Fridge() { }
-        public Fridge(bool state, int max, int min, int temp, bool openclose)
-            : base(max, min, temp)
+        public Fridge(bool state, int Temp, bool openclose)
+            : base( Temp)
         {
             this.openclose = openclose;
         }

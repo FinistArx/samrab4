@@ -137,11 +137,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contex\ChennelContex.cs" />
-    <Compile Include="Models\Contex\VolumeContex.cs" />
     <Compile Include="Models\Contex\SmartHomeContexInitializer.cs" />
     <Compile Include="Models\Contex\SmartHomeContex.cs" />
-    <Compile Include="Models\Contex\TemperatureContex.cs" />
     <Compile Include="Models\Device\AbstactDevice.cs" />
     <Compile Include="Models\Device\Boiler.cs" />
     <Compile Include="Models\Device\Conditioner.cs" />

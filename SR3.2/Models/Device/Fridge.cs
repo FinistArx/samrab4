@@ -1,7 +1,10 @@
 ﻿using SR3._2.Models.Interfaces;
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SR3._2.Models.Device
 {
+    [Table("Freee")]
     public class Fridge : Temperature, IOpenClose
     {
         private bool openclose;

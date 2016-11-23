@@ -1,7 +1,9 @@
 ﻿using SR3._2.Models.Interfaces;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SR3._2.Models.Device
 {
+    [Table("MC")]
     public class MC : AbstractDevice, IChangeChennel, IVolume
     {
         public MC() { } 

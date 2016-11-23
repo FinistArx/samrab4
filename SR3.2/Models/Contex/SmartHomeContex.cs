@@ -14,7 +14,7 @@ namespace SamRab3_2.Models.Contex
         {
             Database.SetInitializer(new SmartHomeContexInitializer());
         }
-      
+
         public DbSet<Boiler> Boilers { get; set; }
         public DbSet<Conditioner> Conds { get; set; }
         public DbSet<Fridge> Fredges { get; set; }

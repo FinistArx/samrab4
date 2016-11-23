@@ -1,8 +1,6 @@
 ﻿using SamRab3_2.Models.Contex;
-using SR3._2.Models.Contex;
 using SR3._2.Models.Device;
 using SR3._2.Models.Interfaces;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -12,33 +10,15 @@ namespace SR3._2.Controllers
     public class DeviceController : Controller
     {
         private SmartHomeContex bb = new SmartHomeContex();
-        private TemperatureContex tc = new TemperatureContex();
-        private VolumeContex vc = new VolumeContex();
-        private ChennelContex cc = new ChennelContex();
         public ActionResult Index()
         {
             IList<AbstractDevice> list = new List<AbstractDevice>();
 
-            foreach (AbstractDevice item in bb.Boilers.ToList())
+            foreach (AbstractDevice item in bb.Devices.ToList())
             {
                 list.Add(item);
             }
-            foreach (AbstractDevice item in bb.Conds.ToList())
-            {
-                list.Add(item);
-            }
-            foreach (AbstractDevice item in bb.Fredges.ToList())
-            {
-                list.Add(item);
-            }
-            foreach (AbstractDevice item in bb.TVs.ToList())
-            {
-                list.Add(item);
-            }
-            foreach (AbstractDevice item in bb.MCs.ToList())
-            {
-                list.Add(item);
-            }
+
 
             SelectListItem[] appList = new SelectListItem[5];
             appList[0] = new SelectListItem { Text = "Жароед", Value = "boiler" };
@@ -113,60 +93,58 @@ namespace SR3._2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult TempIncrease(string deviceType)
+        public ActionResult TempIncrease(int id)
         {
-            IRegulatorTemp newtemp = tc.Tempes.Find(deviceType);
+            Temperature newtemp = bb.Boilers.Find(id);
             if (newtemp != null)
             {
-                switch (deviceType)
+                switch (id)
                 {
-                    case "boiler":
+                    case 1:
                         newtemp.IncreaseTemp();
                         break;
-                    case "cond":
+                    case 2:
+                        newtemp.IncreaseTemp();
+                        break;
+                    default:
+                        newtemp.IncreaseTemp();
+                        break;
+                }
+                bb.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult TempDecrease(int id)
+        {
+            Temperature newtemp = bb.Boilers.Find(id);
+            if (newtemp != null)
+            {
+                switch (id)
+                {
+                    case 1:
+                        newtemp.DecreaseTemp();
+                        break;
+                    case 2:
                         newtemp.DecreaseTemp();
                         break;
                     default:
-                        newtemp.IncreaseTemp();
+                        newtemp.DecreaseTemp();
                         break;
                 }
-                tc.SaveChanges();
+                bb.SaveChanges();
             }
             return RedirectToAction("Index");
         }
 
-        public ActionResult TempDecrease(string deviceType)
+        public ActionResult VolumeIncr(int id)
         {
-            Temperature newtemp2 = bb.Boilers.Find(deviceType);
-            if (newtemp2 != null)
-            {
-                switch (deviceType)
-                {
-                    case "boiler":
-                        newtemp2.DecreaseTemp();
-                        break;
-                    case "cond":
-                        newtemp2.DecreaseTemp();
-                        break;
-                    default:
-                        newtemp2.DecreaseTemp();
-                        break;
-                }
-
-                tc.SaveChanges();
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult VolumeIncr(string deviceType)
-        {
-            IVolume newvol = vc.TVs.Find(deviceType);
+            IVolume newvol = bb.MCs.Find(id);
             if (newvol != null)
             {
-                switch (deviceType)
+                switch (id)
                 {
-                    case "tvset":
+                    case 1:
                         newvol.IncreaseVolume();
                         break;
                     default:
@@ -174,19 +152,19 @@ namespace SR3._2.Controllers
                         break;
                 }
 
-                tc.SaveChanges();
+                bb.SaveChanges();
             }
             return RedirectToAction("Index");
         }
-        
-        public ActionResult VolumeDecr(string deviceType)
+
+        public ActionResult VolumeDecr(int id)
         {
-            IVolume newvol = vc.TVs.Find(deviceType);
+            IVolume newvol = bb.MCs.Find(id);
             if (newvol != null)
             {
-                switch (deviceType)
+                switch (id)
                 {
-                    case "tvset":
+                    case 1:
                         newvol.DecreaseVolume();
                         break;
                     default:
@@ -194,31 +172,50 @@ namespace SR3._2.Controllers
                         break;
                 }
 
-                tc.SaveChanges();
+                bb.SaveChanges();
             }
             return RedirectToAction("Index");
         }
 
-        //public ActionResult OniOffi(int id)
-        //{
-        //    IDictionary<int, AbstractDevice> SmartHome = (SortedDictionary<int, AbstractDevice>)Session["Device"];
-        //    SmartHome[id].OnOff();
 
-        //    return RedirectToAction("Index");
-        //}
 
         public ActionResult NextChenell(int id)
         {
-            IDictionary<int, AbstractDevice> SmartHome = (SortedDictionary<int, AbstractDevice>)Session["Device"];
-            ((IChangeChennel)SmartHome[id]).NextChennel();
+            IChangeChennel newvol = bb.MCs.Find(id);
+            if (newvol != null)
+            {
+                switch (id)
+                {
+                    case 1:
+                        newvol.NextChennel();
+                        break;
+                    default:
+                        newvol.NextChennel();
+                        break;
+                }
 
+                bb.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
+
         public ActionResult PrevChenell(int id)
         {
-            IDictionary<int, AbstractDevice> SmartHome = (SortedDictionary<int, AbstractDevice>)Session["Device"];
-            ((IChangeChennel)SmartHome[id]).PreviusChennel();
+            IChangeChennel newvol = bb.MCs.Find(id);
+            if (newvol != null)
+            {
+                switch (id)
+                {
+                    case 1:
+                        newvol.PreviusChennel();
+                        break;
+                    default:
+                        newvol.PreviusChennel();
+                        break;
+                }
 
+                bb.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
 

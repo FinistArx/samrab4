@@ -95,7 +95,7 @@ namespace SR3._2.Controllers
 
         public ActionResult TempIncrease(int id)
         {
-            Temperature newtemp = bb.Boilers.Find(id);
+            Temperature newtemp = bb.Temperatures.Find(id);
             if (newtemp != null)
             {
                 switch (id)
@@ -117,7 +117,7 @@ namespace SR3._2.Controllers
 
         public ActionResult TempDecrease(int id)
         {
-            Temperature newtemp = bb.Boilers.Find(id);
+            Temperature newtemp = bb.Temperatures.Find(id);
             if (newtemp != null)
             {
                 switch (id)
@@ -139,41 +139,33 @@ namespace SR3._2.Controllers
 
         public ActionResult VolumeIncr(int id)
         {
-            IVolume newvol = bb.MCs.Find(id);
-            if (newvol != null)
+            if (id == 4)
             {
-                switch (id)
-                {
-                    case 1:
-                        newvol.IncreaseVolume();
-                        break;
-                    default:
-                        newvol.IncreaseVolume();
-                        break;
-                }
-
-                bb.SaveChanges();
+                IVolume newvol = bb.MCs.Find(id);
+                newvol.IncreaseVolume();
             }
+            if (id == 5)
+            {
+                IVolume newvol2 = bb.TVs.Find(id);
+                newvol2.IncreaseVolume();
+            }
+            bb.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult VolumeDecr(int id)
         {
-            IVolume newvol = bb.MCs.Find(id);
-            if (newvol != null)
+            if (id == 4)
             {
-                switch (id)
-                {
-                    case 1:
-                        newvol.DecreaseVolume();
-                        break;
-                    default:
-                        newvol.DecreaseVolume();
-                        break;
-                }
-
-                bb.SaveChanges();
+                IVolume newvol = bb.MCs.Find(id);
+                newvol.DecreaseVolume();
             }
+            if (id == 5)
+            {
+                IVolume newvol2 = bb.TVs.Find(id);
+                newvol2.DecreaseVolume();
+            }
+            bb.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -181,41 +173,33 @@ namespace SR3._2.Controllers
 
         public ActionResult NextChenell(int id)
         {
-            IChangeChennel newvol = bb.MCs.Find(id);
-            if (newvol != null)
+            if (id == 4)
             {
-                switch (id)
-                {
-                    case 1:
-                        newvol.NextChennel();
-                        break;
-                    default:
-                        newvol.NextChennel();
-                        break;
-                }
-
-                bb.SaveChanges();
+                IChangeChennel newvol = bb.MCs.Find(id);
+                newvol.NextChennel();
             }
+            if (id == 5)
+            {
+                IChangeChennel newvol2 = bb.TVs.Find(id);
+                newvol2.NextChennel();
+            }
+            bb.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult PrevChenell(int id)
         {
-            IChangeChennel newvol = bb.MCs.Find(id);
-            if (newvol != null)
+            if (id == 4)
             {
-                switch (id)
-                {
-                    case 1:
-                        newvol.PreviusChennel();
-                        break;
-                    default:
-                        newvol.PreviusChennel();
-                        break;
-                }
-
-                bb.SaveChanges();
+                IChangeChennel newvol = bb.MCs.Find(id);
+                newvol.PreviusChennel();
             }
+            if (id == 5)
+            {
+                IChangeChennel newvol2 = bb.TVs.Find(id);
+                newvol2.PreviusChennel();
+            }
+            bb.SaveChanges();
             return RedirectToAction("Index");
         }
 
